@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenn's Dog Breed Challenge 🐶</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+
+        <header>
+            <h1>🐶 TOP 10 DOG BREEDS 🐾</h1>
+            <p>CAN JENN NAME THE 10 MOST POPULAR DOG BREEDS?</p>
+
+            <div class="progress">
+                🐾 BREEDS FOUND: <span id="foundCount">0</span>/10
+            </div>
+        </header>
+
+        <div class="dog-grid" id="dogGrid"></div>
+
+        <button class="reset-btn" onclick="resetGame()">
+            🔄 RESET GAME
+        </button>
+
+    </div>
+
+    <div class="victory-screen" id="victoryScreen">
+        <div class="victory-content">
+            <h1>🏆 JENN KNOWS HER DOGS! 🐶</h1>
+            <p>YOU FOUND ALL 10 DOG BREEDS!</p>
+            <button onclick="resetGame()">PLAY AGAIN 🐾</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

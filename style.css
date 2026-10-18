@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #fff4dc);
+    min-height: 100vh;
+    color: #5a3e36;
+}
+
+.game-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* HEADER */
+
+header h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.progress {
+    display: inline-block;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* DOG GRID */
+
+.dog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* DOG CARDS */
+
+.dog-card {
+    height: 210px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.dog-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FRONT OF CARD */
+
+.card-front {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #ffc4d6;
+}
+
+.card-front h2 {
+    font-size: 55px;
+    color: #ff80a5;
+}
+
+.card-front p {
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+/* BACK OF CARD */
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back img {
+    width: 100%;
+    height: 145px;
+    object-fit: contain;
+    object-position: center;
+    background: white;
+}
+
+.card-back h3 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5a3e36;
+    text-align: center;
+}
+
+/* RESET BUTTON */
+
+.reset-btn {
+    margin-top: 40px;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 30px;
+    background: #ff80a5;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reset-btn:hover {
+    background: #ff5c8a;
+    transform: scale(1.05);
+}
+
+/* VICTORY SCREEN */
+
+.victory-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 228, 236, 0.97);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+}
+
+.victory-screen.active {
+    display: flex;
+}
+
+.victory-content h1 {
+    font-size: clamp(32px, 6vw, 60px);
+    margin-bottom: 20px;
+}
+
+.victory-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.victory-content button {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 30px;
+    background: #ff80a5;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .dog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dog-card {
+        height: 240px;
+    }
+}
